@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
+import  { evaluate } from 'mathjs';
 
 const App = () => {
   const [result, setResult] = useState("");
@@ -7,13 +8,13 @@ const App = () => {
   const handleClick = (e) => {
 
     setResult(result.concat(e.target.name));
-     
+
   };
 
   const clear = () => {
 
     setResult("");
-    
+
   };
 
   const backspace = () => {
@@ -22,11 +23,12 @@ const App = () => {
 
   };
 
+
   const calculate = () => {
 
     try {
 
-      setResult(eval(result).toString());
+      setResult(evaluate(result).toString());
 
     } catch(err) {
 
@@ -34,8 +36,8 @@ const App = () => {
     };
     };
 
-   
-  
+
+
 
   return (
 
